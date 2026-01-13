@@ -3,8 +3,14 @@
 import React, { useState } from 'react';
 import CircleOrbs from '../components/CircleOrbs';
 
-// Backend API URL - Update this based on your environment
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+// Backend API URL - Safely handles trailing slashes
+const getApiUrl = () => {
+  const url = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+  // Remove trailing slash if it exists
+  return url.endsWith('/') ? url.slice(0, -1) : url;
+};
+
+const API_URL = getApiUrl();
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -95,6 +101,8 @@ export default function ContactUs() {
     setSubmitStatus({ type: null, message: '' });
 
     try {
+      console.log('Submitting to:', `${API_URL}/api/contact`); // Debug log
+      
       const response = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: {
@@ -221,7 +229,7 @@ export default function ContactUs() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg sm:text-xl text-white font-medium mb-4">
+                  <h3 className="text-lg sm:text-xl text-white font-medium mb-2">
                     Follow us :
                   </h3>
                   <div className="flex gap-4">
