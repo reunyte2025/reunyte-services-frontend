@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.heading {
+  font-family: var(--font-jockey), cursive;
+}
