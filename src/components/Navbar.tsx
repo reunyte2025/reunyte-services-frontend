@@ -20,6 +20,8 @@ export default function Navbar() {
   ];
 
   const isActive = (href: string) => {
+    if (!pathname) return false; // Add null check
+    
     if (href === '/') {
       return pathname === '/';
     }
