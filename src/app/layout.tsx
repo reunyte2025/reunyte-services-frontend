@@ -21,6 +21,8 @@ const jockeyOne = Jockey_One({
 export const metadata = {
   title: "Reunyte",
   description: "Think Ahead. Build Bold. Shape the Future",
+  icons: { icon: '/assets/images/reunytelogo.png' }  // or '/logo.png'
+
 };
 
 export default function RootLayout({
