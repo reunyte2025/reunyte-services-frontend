@@ -26,7 +26,9 @@ export default function ContactUs() {
     message: string;
   }>({ type: null, message: '' });
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event?: React.FormEvent<HTMLFormElement>) => {
+    event?.preventDefault();
+
     // Client-side validation
     if (!formData.fullName || !formData.email || !formData.phoneNumber || !formData.queries) {
       setSubmitStatus({
@@ -111,7 +113,9 @@ export default function ContactUs() {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => ({
+        message: 'Something went wrong. Please try again.'
+      }));
 
       if (response.ok) {
         setSubmitStatus({
@@ -178,10 +182,10 @@ export default function ContactUs() {
                   Contact us
                 </h3>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white mb-6 leading-tight">
-                  We're Here to Help
+                  We&apos;re Here to Help
                 </h1>
                 <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                  Together, let's create innovative solutions for your real-world challenges
+                  Together, let&apos;s create innovative solutions for your real-world challenges
                 </p>
               </div>
 
@@ -204,10 +208,10 @@ export default function ContactUs() {
                     Email :
                   </h3>
                   <a 
-                    href="mailto:abc@gmail.com" 
+                    href="mailto:reunyte.info@gmail.com" 
                     className="text-base sm:text-lg text-gray-300 hover:text-white transition-colors"
                   >
-                    abc@gmail.com
+                    reunyte.info@gmail.com
                   </a>
                 </div>
 
@@ -218,10 +222,10 @@ export default function ContactUs() {
                   <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                     reach us at{' '}
                     <a 
-                      href="mailto:info@gmail.com" 
+                      href="mailto:reunyte.info@gmail.com" 
                       className="text-gray-300 hover:text-white transition-colors underline"
                     >
-                      info@gmail.com
+                      reunyte.info@gmail.com
                     </a>
                     <br />
                     and we will get back to you ASAP.
@@ -306,7 +310,7 @@ export default function ContactUs() {
                   </div>
                 )}
 
-                <div className="space-y-5">
+                <form className="space-y-5" onSubmit={handleSubmit}>
                   {/* Full Name */}
                   <div>
                     <label htmlFor="fullName" className="block text-sm text-white/90 mb-2 font-normal">
@@ -319,6 +323,9 @@ export default function ContactUs() {
                       value={formData.fullName}
                       onChange={handleChange}
                       disabled={isSubmitting}
+                      required
+                      minLength={2}
+                      maxLength={100}
                       className="w-full px-4 py-3 rounded-xl bg-white/95 text-gray-900 placeholder-gray-500 outline-none focus:ring-2 focus:ring-blue-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="Enter your full name"
                     />
@@ -336,6 +343,7 @@ export default function ContactUs() {
                       value={formData.email}
                       onChange={handleChange}
                       disabled={isSubmitting}
+                      required
                       className="w-full px-4 py-3 rounded-xl bg-white/95 text-gray-900 placeholder-gray-500 outline-none focus:ring-2 focus:ring-blue-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="your.email@example.com"
                     />
@@ -353,6 +361,9 @@ export default function ContactUs() {
                       value={formData.phoneNumber}
                       onChange={handleChange}
                       disabled={isSubmitting}
+                      required
+                      minLength={10}
+                      maxLength={20}
                       className="w-full px-4 py-3 rounded-xl bg-white/95 text-gray-900 placeholder-gray-500 outline-none focus:ring-2 focus:ring-blue-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="+91 1234567890"
                     />
@@ -370,6 +381,9 @@ export default function ContactUs() {
                       onChange={handleChange}
                       disabled={isSubmitting}
                       rows={6}
+                      required
+                      minLength={10}
+                      maxLength={2000}
                       className="w-full px-4 py-3 rounded-xl bg-white/95 text-gray-900 placeholder-gray-500 outline-none focus:ring-2 focus:ring-blue-400 transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="Tell us how we can help you..."
                     />
@@ -377,7 +391,7 @@ export default function ContactUs() {
 
                   {/* Submit Button */}
                   <button
-                    onClick={handleSubmit}
+                    type="submit"
                     disabled={isSubmitting}
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
                   >
@@ -393,7 +407,7 @@ export default function ContactUs() {
                       'Submit your response'
                     )}
                   </button>
-                </div>
+                </form>
               </div>
             </div>
           </div>

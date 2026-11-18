@@ -126,50 +126,56 @@ const TEAM_ROLES = [
 ];
 
 // ─── Story Milestones ────────────────────────────────────────────────────────
+// Past years use status: 'done'. Future years are explicitly framed as goals/vision
+// so the timeline stays honest rather than claiming achievements that haven't happened yet.
 const MILESTONES = [
   {
-    year: '2020',
-    title: 'The Spark',
-    desc: 'Founded with a bold vision — to build technology that empowers businesses to move faster and smarter.',
+    year: '2025',
+    title: 'Foundation',
+    desc: 'Reunyte Services LLP was founded in Mumbai with a simple idea — bring technology, creative, and business strategy together under one roof for startups and growing businesses.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
       </svg>
     ),
     color: '#3B82F6',
+    status: 'done',
   },
   {
-    year: '2021',
-    title: 'First 100 Clients',
-    desc: 'Rapid growth as our platform proved its value. We crossed 100 clients and expanded our core team.',
+    year: '2026',
+    title: 'Building the Core Team',
+    desc: 'Growing into a close-knit team of 15-20 specialists across engineering, design, and strategy — and delivering our first projects across web, app, and brand development.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
       </svg>
     ),
     color: '#8B5CF6',
+    status: 'done',
   },
   {
-    year: '2022',
-    title: 'Platform v2.0',
-    desc: 'Launched a fully redesigned platform with AI-powered features and enterprise-grade security.',
+    year: '2027',
+    title: 'Scaling Our Impact',
+    desc: 'Our goal: expand into education and corporate training at scale, deepen our design & development capabilities, and grow a loyal client base across India.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
       </svg>
     ),
     color: '#EC4899',
+    status: 'goal',
   },
   {
-    year: '2024',
-    title: 'Going Global',
-    desc: 'Expanded into international markets, now proudly serving thousands of clients across the globe.',
+    year: '2028',
+    title: 'A Trusted Name',
+    desc: 'Our vision: be recognized as a genuine, dependable multi-domain partner for startups and institutions — known for quality work, not just quick delivery.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
       </svg>
     ),
     color: '#10B981',
+    status: 'goal',
   },
 ];
 
@@ -422,7 +428,7 @@ const About: React.FC = () => {
               </span>
             </h2>
             <p className="mt-4 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              From a single idea to a global platform — every step shaped by purpose, people, and an unrelenting drive to build something that matters.
+              From where we started to where we're headed — here's our journey so far, and the roadmap that drives us forward.
             </p>
             <div className="mt-6 h-px w-16 mx-auto bg-gradient-to-r from-blue-400 to-purple-400" />
           </div>
@@ -462,6 +468,9 @@ const About: React.FC = () => {
                             >
                               {m.year}
                             </span>
+                            <span className="text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full border border-white/10 text-slate-400">
+                              {m.status === 'goal' ? 'Goal' : 'Milestone'}
+                            </span>
                           </div>
                           <h3 className="text-white font-bold text-lg mb-2">{m.title}</h3>
                           <p className="text-slate-400 text-sm leading-relaxed">{m.desc}</p>
@@ -492,10 +501,10 @@ const About: React.FC = () => {
           >
             <div className="rounded-2xl bg-[#0D1F38]/80 backdrop-blur-sm px-6 py-8 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               {[
-                { value: '4+', label: 'Years of Experience' },
-                { value: '1000+', label: 'Clients Served' },
-                { value: '50+', label: 'Team Members' },
-                { value: '99%', label: 'Client Satisfaction' },
+                { value: '2025', label: 'Founded In' },
+                { value: '15-20', label: 'Team Members' },
+                { value: '6', label: 'Core Service Domains' },
+                { value: '100%', label: 'Dedicated to Every Project' },
               ].map((stat, i) => (
                 <div key={i}>
                   <p

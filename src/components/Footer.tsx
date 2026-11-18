@@ -27,26 +27,19 @@ export default function Footer() {
           <div className="space-y-2">
             <h3 className="font-semibold text-sm mb-3">Address:</h3>
             <p className="text-sm leading-relaxed">
-              8677 Bayberry Ave.<br />
-              Bellmore, NY 11710
+              Santacruz, Mumbai<br />
+              Maharashtra 400055, India
             </p>
             <div className="mt-4">
               <h3 className="font-semibold text-sm mb-2">Email ID:</h3>
-              <a href="mailto:explore@gmail.com" className="text-sm hover:text-blue-400 transition-colors">
-                explore@gmail.com
+              <a href="mailto:info@reunyte.in" className="text-sm hover:text-blue-400 transition-colors">
+                info@reunyte.in
               </a>
             </div>
           </div>
 
-          {/* Social Media Column */}
-          <div className="space-y-3">
-            <p className="text-sm">@explore_10</p>
-            <p className="text-sm">@explore_10</p>
-            <p className="text-sm">@explore_10</p>
-          </div>
-
           {/* Contact Form Column */}
-          <div className="space-y-4">
+          <div className="space-y-4 md:col-start-4">
             <div className="flex gap-2">
               <input
                 type="email"
@@ -103,7 +96,7 @@ export default function Footer() {
             {/* Contact Information */}
             <div className="text-sm space-y-1 mt-4">
               <p>Mobile: <a href="tel:+918346218493" className="hover:text-blue-400 transition-colors">+91 8346218493</a></p>
-              <p>Email: <a href="mailto:shubhambhat12@gmail.com" className="hover:text-blue-400 transition-colors">shubhambhat12@gmail.com</a></p>
+              <p>Email: <a href="mailto:info@reunyte.in" className="hover:text-blue-400 transition-colors">info@reunyte.in</a></p>
             </div>
           </div>
         </div>
@@ -143,7 +136,7 @@ export default function Footer() {
 
           {/* Terms & Conditions */}
           <div>
-            <Link href="/terms" className="text-sm hover:text-blue-400 transition-colors underline">
+            <Link href="/terms&condition" className="text-sm hover:text-blue-400 transition-colors underline">
               Terms & Conditions Apply
             </Link>
           </div>

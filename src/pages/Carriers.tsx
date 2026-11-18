@@ -19,43 +19,51 @@ export default function Carriers() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Career positions data - easily add more cards here
+  // Career positions data - easily add more cards here.
+  // `isOpen: false` across the board means we're not actively hiring right now —
+  // this drives the disabled "Not Open Yet" state on each card's CTA below.
   const careerPositions = [
     {
       id: 1,
       title: 'Web Development',
-      description: 'Coding: Proficiency in front-end languages like HTML, CSS, and JavaScript, and back-end languages like Python, Java, Ruby, and PHP',
-      icon: '/assets/careers/web-dev-icon.png' // You can replace with your icon path
+      description: 'Front-end and back-end engineering: HTML, CSS, JavaScript/TypeScript on the front end, and Python, Java, or Node.js on the back end.',
+      isOpen: false,
+      iconPath: 'M9.75 17L15 12l-5.25-5M4.5 7h.008v.008H4.5V7zm15 10h.008v.008h-.008V17z M17 8l4 4-4 4M7 8L3 12l4 4'
     },
     {
       id: 2,
-      title: 'Web Development',
-      description: 'Coding: Proficiency in front-end languages like HTML, CSS, and JavaScript, and back-end languages like Python, Java, Ruby, and PHP',
-      icon: '/assets/careers/web-dev-icon.png'
+      title: 'Mobile App Development',
+      description: 'Native and cross-platform app development using React Native, Flutter, Swift, or Kotlin for iOS and Android.',
+      isOpen: false,
+      iconPath: 'M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5M10.5 1.5v1.5h3V1.5M10.5 1.5h3m-3 18.75h3'
     },
     {
       id: 3,
-      title: 'Web Development',
-      description: 'Coding: Proficiency in front-end languages like HTML, CSS, and JavaScript, and back-end languages like Python, Java, Ruby, and PHP',
-      icon: '/assets/careers/web-dev-icon.png'
+      title: 'UI/UX Design',
+      description: 'Crafting intuitive, accessible product experiences with tools like Figma, from wireframes and prototypes to polished visual design.',
+      isOpen: false,
+      iconPath: 'M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.4-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42'
     },
     {
       id: 4,
-      title: 'Web Development',
-      description: 'Coding: Proficiency in front-end languages like HTML, CSS, and JavaScript, and back-end languages like Python, Java, Ruby, and PHP',
-      icon: '/assets/careers/web-dev-icon.png'
+      title: 'Cloud & DevOps Engineering',
+      description: 'Building and maintaining CI/CD pipelines, infrastructure-as-code, and scalable cloud environments on AWS, Azure, or GCP.',
+      isOpen: false,
+      iconPath: 'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z'
     },
     {
       id: 5,
-      title: 'Web Development',
-      description: 'Coding: Proficiency in front-end languages like HTML, CSS, and JavaScript, and back-end languages like Python, Java, Ruby, and PHP',
-      icon: '/assets/careers/web-dev-icon.png'
+      title: 'Data Science & Analytics',
+      description: 'Turning raw data into insight: statistical modeling, dashboards, and data pipelines using Python, SQL, and modern BI tools.',
+      isOpen: false,
+      iconPath: 'M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z'
     },
     {
       id: 6,
-      title: 'Web Development',
-      description: 'Coding: Proficiency in front-end languages like HTML, CSS, and JavaScript, and back-end languages like Python, Java, Ruby, and PHP',
-      icon: '/assets/careers/web-dev-icon.png'
+      title: 'Quality Assurance & Testing',
+      description: 'Manual and automated testing to keep releases reliable — writing test plans, regression suites, and end-to-end automation.',
+      isOpen: false,
+      iconPath: 'M9 12.75L11.25 15 15 9.75M21 12c0 4.556-3.582 8.257-8.25 8.995C7.582 20.257 4 16.556 4 12V6.5a1 1 0 01.553-.894L12 3l7.447 2.606a1 1 0 01.553.894V12z'
     }
   ];
 
@@ -165,9 +173,14 @@ export default function Carriers() {
         
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Title */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white mb-4">
             We are currently looking for
           </h2>
+
+          {/* Subtitle - honest status about openings */}
+          <p className="text-base sm:text-lg text-gray-300 mb-12 lg:mb-16 max-w-2xl">
+            We don&apos;t have any open positions at the moment, but we&apos;re always excited to hear from talented people. Take a look at the roles we typically hire for below, and check back soon.
+          </p>
 
           {/* Career Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -184,15 +197,21 @@ export default function Carriers() {
                     backdropFilter: 'blur(10px)',
                   }}
                 >
-                  {/* Icon */}
-                  <div className="mb-5">
+                  {/* Icon + Status Badge */}
+                  <div className="mb-5 flex items-start justify-between">
                     <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-linear-to-br from-purple-500/30 to-pink-500/30 flex items-center justify-center">
                       <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-linear-to-br from-purple-400 to-pink-400 flex items-center justify-center">
                         <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={position.iconPath} />
                         </svg>
                       </div>
                     </div>
+
+                    {!position.isOpen && (
+                      <span className="text-xs font-medium text-gray-300 bg-white/10 border border-white/15 rounded-full px-3 py-1 whitespace-nowrap">
+                        No openings
+                      </span>
+                    )}
                   </div>
 
                   {/* Title */}
@@ -221,13 +240,44 @@ export default function Carriers() {
                     </svg>
                   </button>
 
-                  {/* Apply Now Button */}
-                  <button className="w-full px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white text-sm sm:text-base font-medium rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50">
-                    Apply now
-                  </button>
+                  {/* Apply Now / Not Open Yet Button */}
+                  {position.isOpen ? (
+                    <button className="w-full px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white text-sm sm:text-base font-medium rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50">
+                      Apply now
+                    </button>
+                  ) : (
+                    <button
+                      disabled
+                      title="This role isn't open right now — send your resume and we'll reach out when it is."
+                      className="w-full px-6 py-3 bg-white/5 border border-white/10 text-gray-400 text-sm sm:text-base font-medium rounded-xl cursor-not-allowed"
+                    >
+                      Not open yet
+                    </button>
+                  )}
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* General CTA - path forward when nothing is open */}
+          <div className="mt-12 lg:mt-16 rounded-3xl border border-white/10 bg-white/5 px-6 sm:px-10 py-8 sm:py-10 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            <div>
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">
+                Don&apos;t see the right fit yet?
+              </h3>
+              <p className="text-sm sm:text-base text-gray-300 max-w-xl">
+                We&apos;re growing and new roles open up regularly. Send us your resume and we&apos;ll reach out when something matches your skills.
+              </p>
+            </div>
+            <a
+              href="mailto:careers@luminar.com"
+              className="inline-flex shrink-0 items-center gap-2 px-6 py-3 border-2 border-blue-500 text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-blue-500 hover:scale-105 transition-all duration-300"
+            >
+              Send your resume
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
